@@ -28,3 +28,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.input {
+  border: solid 1px black;
+  padding: 20px;
+}
+
+.output {
+  border: solid 1px black;
+  padding: 50px;
+}

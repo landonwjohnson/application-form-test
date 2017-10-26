@@ -25,6 +25,11 @@ export default class Page1 extends Component {
     this.setState({ gender: e.target.value });
   }
  
+  handleChange(event) {
+    this.setState({
+
+    })
+  }
 
   
   render() {
@@ -33,31 +38,31 @@ export default class Page1 extends Component {
     return (
       
       <div>
-     
+        <div className="input">
+              <h1>Input</h1>
+              <label>Gender</label>
+              <br/>
+              <br/>
 
-        <label>Gender</label>
-        <br/>
+              <label> Birthday </label>
+              <br/>
+                  <input type = "date" value={this.state.birthday} onChange={this.getBirthday} placeholder="birthday" />
+              <br/>
+              <br/>
+
+
+              <label for="background-color">What's your favorite color</label>
+              <br/>
+                <input id="background-color" value={this.state.color} onChange={this.getColor} type="color" /> 
+              <br/>
+        </div>
         
-            
-        
-       
-         
-        <br/>
 
-
-        <label> Birthday </label>
-        <br/>
-            <input type = "date" value={this.state.birthday} onChange={this.getBirthday} placeholder="birthday" />
-        <br/>
-        <br/>
-
-
-        <label for="background-color">What's your favorite color</label>
-        <br/>
-          <input id="background-color" value={this.state.color} onChange={this.getColor} type="color" /> 
-        <br/>
-        
-      </div>
+        <div className="output">
+              <h1>Output</h1>
+              Birthday: {this.state.birthday}
+              </div>
+        </div>
       
     );
   }
