@@ -1,47 +1,53 @@
 import React, { Component } from 'react';
 import './App.css';
 import Body from './components/Body';
+import styled from 'styled-components';
+
+
+const StyledApp = styled.div`
+  background-color: ${propsies => propsies.niceColor};
+  padding: 20px;
+`;
+
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      phoneNumber: "",
-      birthday: '',
-      gender: '',
-      color: '',
+      formValues: {
+        firstName: 'Gabe',
+        lastName: '',
+        phoneNumber: '',
+        birthday: '',
+        gender: '',
+        color: '',
+        city: '',
+        usaState: ''
+      },
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleNext = this.handleNext.bind(this);
+    this.updateFormState = this.updateFormState.bind(this);
   }
 
-  handleNext(e){
-    e.preventDefault()
-    this.props.history.push("/page/2")
-    console.log(this.props.history)
+  updateFormState(newValues){
+    this.setState({formValues: newValues});
   }
 
-  handleInputChange(e){
-    e.preventDefault()  
-    const key = e.target.id 
-    const value = e.target.value
-    this.setState({
-      [key]: value
-    })
-  }
+
   render() {
+    console.log(this.state)
     return (
-      <div className="App">
-        <Body birthday={this.state.birthday} gender={this.state.gender} color={this.state.color}/>
+      <StyledApp niceColor={this.state.formValues.color || 'white'} className="App">
+        <Body updateFormState={this.updateFormState} formValues={this.state.formValues}/>
 
         <div className="output">
               <h1>Output</h1>
-              Birthday: {this.state.birthday}
-              <div className="color-output" style={{"background":`${this.state.color}`}}></div>
+               <p>Gender:{this.state.formValues.gender}</p>
+               <p>Birthday: {this.state.formValues.birthday} </p>
+              <div className="color-output" style={{"background":`${this.state.formValues.color}`}}>
+              <p>{this.state.formValues.color} </p>
+              </div>
         </div>
-      </div>
+      </StyledApp>
     );
   }
 }

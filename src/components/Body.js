@@ -7,11 +7,11 @@ class Body extends Component {
   render() {
     return (
       <div>
-        <Switch>
+        {/* <Switch>
             <Route component={ Page1 } path="/page/1" exact/>
             <Route component={ Page2 } path="/page/2" exact/>
-        </Switch>
-        {/* <Page1 birthday={this.props.birthday} color={this.props.color} gender={this.props.gender} /> */}
+        </Switch> */}
+        <Page1 {...this.props} />
       </div>
     );
   }

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 
-class Page1 extends Component {
-  constructor(){
-    super();
+
+export default class Page1 extends Component {
+  constructor(props){
+    super(props);
     this.state = {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
       birthday: '',
       gender: '',
       color: '',
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleNext(e){
@@ -18,22 +21,20 @@ class Page1 extends Component {
     this.props.history.push("/page/2")
     console.log(this.props.history)
   }
-
-
+  
   handleInputChange(e){
     e.preventDefault()  
     const key = e.target.id 
     const value = e.target.value
     this.setState({
       [key]: value
+    }, () => {
+      this.props.updateFormState(this.state)
     })
   }
 
-  
-
-  
   render() {
-    console.log(this.state);
+    console.log(this.props);
     
     return (
       
@@ -67,7 +68,7 @@ class Page1 extends Component {
               <br/>
 
               <label> What's your favorite color? </label>
-                  <select id="color" value={this.state.color} onChange={this.handleInputChange} style={{"background-color": `${this.state.color}`}} required>
+                  <select id="color" value={this.state.color} onChange={this.handleInputChange} style={{"background-color": `${this.props.state}`}} required>
                         <option></option>
                         <option value="red" style={{"background-color":"red"}}>Red</option>
                         <option value="blue" style={{"background-color":"blue"}}>Blue</option>
@@ -84,12 +85,7 @@ class Page1 extends Component {
            
           </form>
         </div>
-        <div className="output">
-              <h1>Output</h1>
-               <p>Gender:{this.state.gender}</p>
-               <p>Birthday: {this.state.birthday} </p>
-              <div className="color-output" style={{"background":`${this.state.color}`}}></div>
-        </div>
+        
         
 
         
@@ -101,4 +97,3 @@ class Page1 extends Component {
 
 }
 
-export default withRouter(Page1)
