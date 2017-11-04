@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import router from '../../router';
 
 export default class Page2 extends Component {
   constructor(){

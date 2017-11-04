@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import Body from './components/Body';
 import styled from 'styled-components';
+import router from './router';
 
 
 const StyledApp = styled.div`
   background-color: ${propsies => propsies.niceColor};
-  padding: 20px;
 `;
+
+const OutPut = styled.div`
+  background-color: ${'white'};
+`
 
 
 class App extends Component {
@@ -15,10 +19,11 @@ class App extends Component {
     super(props);
     this.state = {
       formValues: {
-        firstName: 'Gabe',
+        firstName: '',
         lastName: '',
         phoneNumber: '',
         birthday: '',
+        age: '',
         gender: '',
         color: '',
         city: '',
@@ -38,15 +43,15 @@ class App extends Component {
     return (
       <StyledApp niceColor={this.state.formValues.color || 'white'} className="App">
         <Body updateFormState={this.updateFormState} formValues={this.state.formValues}/>
-
-        <div className="output">
+        <OutPut>
               <h1>Output</h1>
                <p>Gender:{this.state.formValues.gender}</p>
-               <p>Birthday: {this.state.formValues.birthday} </p>
-              <div className="color-output" style={{"background":`${this.state.formValues.color}`}}>
-              <p>{this.state.formValues.color} </p>
-              </div>
-        </div>
+               <p>Age:</p>
+               <p>Birthday: {this.state.formValues.birthday}</p>
+               <p>Color: {this.state.formValues.color} </p>
+               <p>Height: </p>
+               <p>Weight: </p> 
+        </OutPut>
       </StyledApp>
     );
   }

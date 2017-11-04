@@ -2,21 +2,12 @@
   display: flex;
   justify-content: space-around;
   align-items: space-around;
+  height: 100vh;
 }
 
-.color-output {
-  height: 100px;
-  width: 100px;
-  background: grey;
-  border: 1px solid black;
-}
+
 
 .input {
-  border: solid 1px black;
-  padding: 20px;
-}
-
-.output {
-  border: solid 1px black;
-  padding: 50px;
+  
+  height: 100vh;
 }

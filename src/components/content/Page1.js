@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import router from '../../router';
+
+
+const StyledPage1 = styled.div`
+  background-color: white;
+  padding: 20px;
+`;
+
 
 
 export default class Page1 extends Component {
@@ -38,7 +47,7 @@ export default class Page1 extends Component {
     
     return (
       
-      <div>
+      <StyledPage1>
         <div className="input">
    
             
@@ -73,6 +82,9 @@ export default class Page1 extends Component {
                         <option value="red" style={{"background-color":"red"}}>Red</option>
                         <option value="blue" style={{"background-color":"blue"}}>Blue</option>
                         <option value="green" style={{"background-color":"green"}}>Green</option>
+                        <option value="pink" style={{"background-color":"pink"}}>Pink</option>
+                        <option value="purple" style={{"background-color":"purple"}}>Purple</option>
+                        <option value="orange" style={{"background-color":"orange"}}>Orange</option>
                   </select>
 
 
@@ -89,7 +101,7 @@ export default class Page1 extends Component {
         
 
         
-        </div>
+        </StyledPage1>
       
     );
   }
