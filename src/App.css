@@ -1,13 +1,17 @@
 .App {
   display: flex;
-  justify-content: space-around;
-  align-items: space-around;
+  flex-direction: column;
   height: 100vh;
+  align-items: center;
+}
+
+.test-top {
+  display: flex;
+  flex-direction:  row;
+  justify-content: space-around;
+  width: 100%;
 }
 
 
-
 .input {
-  
-  height: 100vh;
 }

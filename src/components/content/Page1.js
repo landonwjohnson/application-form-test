@@ -5,7 +5,6 @@ import router from '../../router';
 
 const StyledPage1 = styled.div`
   background-color: white;
-  padding: 20px;
 `;
 
 
@@ -20,6 +19,7 @@ export default class Page1 extends Component {
       birthday: '',
       gender: '',
       color: '',
+      weight: ''
     }
     this.handleNext = this.handleNext.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -60,8 +60,8 @@ export default class Page1 extends Component {
               <br/>
                   <select id="gender" value={this.state.gender} onChange={this.handleInputChange} required>
                     <option></option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
                   </select>
               <br/>
 
@@ -79,14 +79,23 @@ export default class Page1 extends Component {
               <label> What's your favorite color? </label>
                   <select id="color" value={this.state.color} onChange={this.handleInputChange} style={{"background-color": `${this.props.state}`}} required>
                         <option></option>
-                        <option value="red" style={{"background-color":"red"}}>Red</option>
-                        <option value="blue" style={{"background-color":"blue"}}>Blue</option>
-                        <option value="green" style={{"background-color":"green"}}>Green</option>
-                        <option value="pink" style={{"background-color":"pink"}}>Pink</option>
-                        <option value="purple" style={{"background-color":"purple"}}>Purple</option>
-                        <option value="orange" style={{"background-color":"orange"}}>Orange</option>
+                        <option value="Red" style={{"background-color":"red"}}>Red</option>
+                        <option value="Blue" style={{"background-color":"blue"}}>Blue</option>
+                        <option value="Green" style={{"background-color":"green"}}>Green</option>
+                        <option value="Pink" style={{"background-color":"pink"}}>Pink</option>
+                        <option value="Purple" style={{"background-color":"purple"}}>Purple</option>
+                        <option value="Orange" style={{"background-color":"orange"}}>Orange</option>
+                        <option value="Teal" style={{"background-color":"teal"}}>Teal</option>
                   </select>
-
+                  <br/>
+                  <br/>
+              <label>Height</label>
+              <br/>
+              <div><input type="number" max={8} min={0} />' <input type="number" max={9} min={0} /> "</div>
+              <br/>
+              <label>Weight</label>
+              <br/>
+              <div><input type="number" id="weight" max={300} min={0}  value={this.state.weight} onChange={this.handleInputChange} />lbs</div>
 
               
 
