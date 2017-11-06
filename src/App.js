@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import router from './router';
 import moment from 'moment';
 import Filter from './components/Filter';
+import ToDo from './components/ToDo';
 
 
 const StyledApp = styled.div`
@@ -14,6 +15,7 @@ const StyledApp = styled.div`
 const OutPut = styled.div`
   background-color: ${'white'};
   padding: 20px;
+  border: 1px solid green;
 `
 
 let now = moment();
@@ -36,7 +38,12 @@ class App extends Component {
         color: '',
         city: '',
         usaState: '',
-        weight: ''
+        weight: '',
+        facebook: '',
+        instagram: '',
+        snapchat: '',
+        phoneNumber: '',
+        zip: '',
       },
     }
     this.updateFormState = this.updateFormState.bind(this);
@@ -73,20 +80,18 @@ class App extends Component {
                <p>Height(meters): </p>
                <p>Weight(lbs): {this.state.formValues.weight}</p> 
                <p>BMI: </p>
+               <p>Facebook: {this.state.formValues.facebook}</p>
+               <p>Instagram: {this.state.formValues.instagram}</p>
+               <p>Snapchat: {this.state.formValues.snapchat}</p>
+               <p>Phone Number: {this.state.formValues.phoneNumber}</p>
+               <p>Education: {this.state.formValues.education}</p>
         </OutPut>
         </div>
         <div className="test-bottom">
         <Filter />
+        <ToDo />
         </div>
-        <div>
-          <h3>Things to do </h3>
-        <ul>
-          <li>can't access form unless they are 18</li>
-          <li>Be able to upload pictures</li>
-          <li>Statistics page wil show how many times the application has been filled out</li>
-          <li>Use Facebook Authorization to fill out Name, City, Education, Work, where they live, where they lived, and use facebook profile picture. </li>
-        </ul>
-      </div>
+      
       </StyledApp>
      
     );

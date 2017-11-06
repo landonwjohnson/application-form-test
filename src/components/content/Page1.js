@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import router from '../../router';
+import { withRouter } from 'react-router-dom'
 
 
 const StyledPage1 = styled.div`
   background-color: white;
+  border: 1px solid blue;
 `;
 
 
 
-export default class Page1 extends Component {
+class Page1 extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,9 +19,17 @@ export default class Page1 extends Component {
       lastName: '',
       phoneNumber: '',
       birthday: '',
+      age: '',
       gender: '',
       color: '',
-      weight: ''
+      city: '',
+      usaState: '',
+      weight: '',
+      facebook: '',
+      instagram: '',
+      snapchat: '',
+      phoneNumber: '',
+      zip: '',
     }
     this.handleNext = this.handleNext.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -88,6 +98,16 @@ export default class Page1 extends Component {
                         <option value="Teal" style={{"background-color":"teal"}}>Teal</option>
                   </select>
                   <br/>
+              <label> Highest Education </label>
+              <select id="education" value={this.state.education} onChange={this.handleInputChange} required>
+                    <option></option>
+                    <option value="Highschool">Highschool Diploma</option>
+                    <option value="Associates">Associate’s Degree</option>
+                    <option value="Bachelors">Bachelor's Degree</option>
+                    <option value="Masters">Master's Degree</option>
+                    
+              </select>
+              <br/>
                   <br/>
               <label>Height</label>
               <br/>
@@ -96,6 +116,21 @@ export default class Page1 extends Component {
               <label>Weight</label>
               <br/>
               <div><input type="number" id="weight" max={300} min={0}  value={this.state.weight} onChange={this.handleInputChange} />lbs</div>
+              <br/>
+              <label>Where are you from?</label>
+              <br/>
+              <div>
+                <label>Zip</label>
+                <input type="text" />
+                <label>State</label>
+                <select>
+                  <option>UT</option>
+                </select>
+                <label>City</label>
+                <select>
+                  <option>Provo</option>
+                </select>
+              </div>
 
               
 
@@ -117,4 +152,6 @@ export default class Page1 extends Component {
  
 
 }
+
+export default withRouter(Page1)
 

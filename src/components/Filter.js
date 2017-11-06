@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const FilterCo = styled.div`
 background-color: white;
+border: 1px solid red;
 `;
 
 class Filter extends Component {
@@ -22,6 +23,9 @@ class Filter extends Component {
               </select>
               <select>
                   <option> State </option>
+              </select>
+              <select>
+                  <option> Education </option>
               </select>
               <button> FILTER </button>
             </form>

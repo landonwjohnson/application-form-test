@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import router from '../../router';
 
 export default class Page2 extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      phoneNumber: '',
       facebook: '',
       instagram: '',
-      snapchat: ''
+      snapchat: '',
+      phoneNumber: '',
+      color: ''
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleNext(e){
@@ -20,12 +21,16 @@ export default class Page2 extends Component {
     console.log(this.props.history)
   }
 
+  
+  
   handleInputChange(e){
     e.preventDefault()  
     const key = e.target.id 
     const value = e.target.value
     this.setState({
       [key]: value
+    }, () => {
+      this.props.updateFormState(this.state)
     })
   }
 
@@ -56,12 +61,15 @@ export default class Page2 extends Component {
         <label> Instagram </label>
                 <input type="text"
                   id="instagram"
+                  max={30}
                   value={this.state.instagram}
                   onChange={this.handleInputChange}
                 />
         <br/>
         <label> Snapchat </label>
                 <input type="text"
+                  min={3}
+                  maxLength={"15"}
                   id="snapchat"
                   value={this.state.snapchat}
                   onChange={this.handleInputChange}
