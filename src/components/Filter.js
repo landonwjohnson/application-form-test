@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
+const FilterCo = styled.div`
+background-color: white;
+`;
 
 class Filter extends Component {
   render() {
     return (
-        <div>
+        <FilterCo>
+            <form>
               <h3>Filter Statistics By</h3>
               <select >
                   <option> Age </option>
@@ -18,12 +23,11 @@ class Filter extends Component {
               <select>
                   <option> State </option>
               </select>
-              <select>
-                  <option> City </option>
-              </select>
+              <button> FILTER </button>
+            </form>
             <p>Display the average of results depending on filter preferences</p>
             
-        </div>
+        </FilterCo>
     );
   }
 }

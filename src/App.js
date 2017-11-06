@@ -25,7 +25,7 @@ class App extends Component {
     super(props);
     
     this.state = {
-      currentDate: `${now}`,
+      currentDate: `${now._d}`,
       formValues: {
         firstName: '',
         lastName: '',
@@ -78,7 +78,17 @@ class App extends Component {
         <div className="test-bottom">
         <Filter />
         </div>
+        <div>
+          <h3>Things to do </h3>
+        <ul>
+          <li>can't access form unless they are 18</li>
+          <li>Be able to upload pictures</li>
+          <li>Statistics page wil show how many times the application has been filled out</li>
+          <li>Use Facebook Authorization to fill out Name, City, Education, Work, where they live, where they lived, and use facebook profile picture. </li>
+        </ul>
+      </div>
       </StyledApp>
+     
     );
   }
 }
