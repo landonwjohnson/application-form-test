@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import router from '../../router';
+import { withRouter } from 'react-router-dom'
 
-export default class Page2 extends Component {
+class Page2 extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,7 +18,7 @@ export default class Page2 extends Component {
 
   handleNext(e){
     e.preventDefault()
-    this.props.history.push("/page/3")
+    this.props.history.push("/thankyou")
     console.log(this.props.history)
   }
 
@@ -39,7 +40,7 @@ export default class Page2 extends Component {
     console.log(this.state)
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleNext}>
         <label> Phone Number </label>
                 <input type="text"
                   id="phoneNumber"
@@ -74,6 +75,10 @@ export default class Page2 extends Component {
                   value={this.state.snapchat}
                   onChange={this.handleInputChange}
                 />
+
+                <div className="step__btn_container">
+                <button type="submit" className="drk-btn" >Next Step</button>
+              </div>
       
         </form>
         
@@ -82,3 +87,5 @@ export default class Page2 extends Component {
     );
   }
 }
+
+export default withRouter(Page2);

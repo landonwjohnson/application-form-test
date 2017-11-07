@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import router from '../../router';
-import { withRouter } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import {updateGenderType} from '../../reducer';
 
 
 const StyledPage1 = styled.div`
@@ -12,49 +13,9 @@ const StyledPage1 = styled.div`
 
 
 class Page1 extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      birthday: '',
-      age: '',
-      gender: '',
-      color: '',
-      city: '',
-      usaState: '',
-      weight: '',
-      facebook: '',
-      instagram: '',
-      snapchat: '',
-      phoneNumber: '',
-      zip: '',
-    }
-    this.handleNext = this.handleNext.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleNext(e){
-    e.preventDefault()
-    this.props.history.push("/page/2")
-    console.log(this.props.history)
-  }
   
-  handleInputChange(e){
-    e.preventDefault()  
-    const key = e.target.id 
-    const value = e.target.value
-    this.setState({
-      [key]: value
-    }, () => {
-      this.props.updateFormState(this.state)
-    })
-  }
-
   render() {
-    console.log(this.props);
-    
+    const { updateGenderType } = this.props;
     return (
       
       <StyledPage1>
@@ -62,13 +23,13 @@ class Page1 extends Component {
    
             
               <br/>
-          <form onSubmit={this.handleNext}>
+          <form>
               <h1>Input</h1>
             
 
               <label>Gender</label>
               <br/>
-                  <select id="gender" value={this.state.gender} onChange={this.handleInputChange} required>
+                  <select onChange={ ( e ) => updateGenderType(e.target.value)} required>
                     <option></option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
@@ -87,7 +48,7 @@ class Page1 extends Component {
               <br/>
 
               <label> What's your favorite color? </label>
-                  <select id="color" value={this.state.color} onChange={this.handleInputChange} style={{"background-color": `${this.props.state}`}} required>
+                  <select required>
                         <option></option>
                         <option value="Red" style={{"background-color":"red"}}>Red</option>
                         <option value="Blue" style={{"background-color":"blue"}}>Blue</option>
@@ -99,7 +60,7 @@ class Page1 extends Component {
                   </select>
                   <br/>
               <label> Highest Education </label>
-              <select id="education" value={this.state.education} onChange={this.handleInputChange} required>
+              <select required>
                     <option></option>
                     <option value="Highschool">Highschool Diploma</option>
                     <option value="Associates">Associate’s Degree</option>
@@ -115,7 +76,7 @@ class Page1 extends Component {
               <br/>
               <label>Weight</label>
               <br/>
-              <div><input type="number" id="weight" max={300} min={0}  value={this.state.weight} onChange={this.handleInputChange} />lbs</div>
+              <div><input type="number" id="weight" max={300} min={0}/>lbs</div>
               <br/>
               <label>Where are you from?</label>
               <br/>
@@ -136,7 +97,7 @@ class Page1 extends Component {
 
 
               <div className="step__btn_container">
-                <button type="submit" className="drk-btn" >Next Step</button>
+                <Link to="/page/2"><button className="drk-btn" >Next Step</button></Link>
               </div>
            
           </form>
@@ -147,11 +108,17 @@ class Page1 extends Component {
         
         </StyledPage1>
       
-    );
+    )
   }
- 
-
 }
 
-export default withRouter(Page1)
+function mapStateToProps(state){
+  const { genderType } = state;
+  return {
+      genderType
+  };
+}
+
+export default connect(mapStateToProps, { updateGenderType } ) (Page1); 
+
 
