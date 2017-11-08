@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
-import Body from './components/Body';
 import styled from 'styled-components';
 import router from './router';
 import moment from 'moment';
@@ -23,12 +23,9 @@ let now = moment();
 
 class App extends Component {
   
-  constructor(props){
-    super(props);
-    
+  constructor(){
+    super()
     this.state = {
-      currentDate: `${now._d}`,
-      formValues: {
         firstName: '',
         lastName: '',
         phoneNumber: '',
@@ -43,18 +40,30 @@ class App extends Component {
         instagram: '',
         snapchat: '',
         phoneNumber: '',
-        zip: '',
-      },
+        zip: ''
     }
-    this.updateFormState = this.updateFormState.bind(this);
+    this.handleChangeGenderType = this.handleChangeGenderType.bind(this);
+    this.handleChangeColorType = this.handleChangeColorType.bind(this);
+    this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
+    
   }
 
    
     
 
-  updateFormState(newValues){
-    this.setState({formValues: newValues});
+  handleChangeGenderType(event) {
+    this.setState({gender: event.target.value});
   }
+
+  handleChangeColorType(event) {
+    this.setState({color: event.target.value});
+  }
+
+  handleChangePhoneNumber(event) {
+    this.setState({phoneNumber: event.target.value});
+  }
+
+
 
   
 
@@ -62,34 +71,11 @@ class App extends Component {
 
 
   render() {
-    var day = moment(this.state.formValues.birthday);
-    console.log(day)
-    console.log(now)
     console.log(this.state)
     return (
-      <StyledApp niceColor={this.state.formValues.color || 'white'} className="App">
+      <StyledApp niceColor={this.state.color || 'white'} className="App">
         <div className="test-top">
-        <Body updateFormState={this.updateFormState} formValues={this.state.formValues}/>
-        <OutPut>
-              <h1>Output</h1> <h6>this information is saved to database</h6>
-               <p>Date:{this.state.currentDate}</p>
-               <p>Gender:{this.state.formValues.gender}</p>
-               <p>Age:</p>
-               <p>Birthday: {this.state.formValues.birthday}</p>
-               <p>Color: {this.state.formValues.color} </p>
-               <p>Height(meters): </p>
-               <p>Weight(lbs): {this.state.formValues.weight}</p> 
-               <p>BMI: </p>
-               <p>Facebook: {this.state.formValues.facebook}</p>
-               <p>Instagram: {this.state.formValues.instagram}</p>
-               <p>Snapchat: {this.state.formValues.snapchat}</p>
-               <p>Phone Number: {this.state.formValues.phoneNumber}</p>
-               <p>Education: {this.state.formValues.education}</p>
-        </OutPut>
-        </div>
-        <div className="test-bottom">
-        <Filter />
-        <ToDo />
+       { router }
         </div>
       
       </StyledApp>
@@ -98,4 +84,8 @@ class App extends Component {
   }
 }
 
-export default App;
+
+function mapStateToProps(state){
+  return state;
+}
+export default connect( mapStateToProps ) (App)

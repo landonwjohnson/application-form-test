@@ -1,13 +1,18 @@
-import React from "react";
-import {Switch, Route } from "react-router-dom";
+import React from 'react';
+import Page1 from './components/content/Page1';
+import ContactInfo from './components/content/ContactInfo';
 
-import Page1 from './components/content/Page1'
-import Page2 from './components/content/Page2';
+
+
+import { HashRouter , Route } from 'react-router-dom';
 
 export default (
-    <Switch>
-        <Route component={ Page1 } path="/page/1" exact />
-        <Route component={ Page2 } path="/page/2" exact/>
-    </Switch>
+    <HashRouter>
+      <div>  
+
+        <Route component={Page1} path= '/' exact />
+        <Route component={ ContactInfo }  path='/contact-info' exact />
+
+      </div>
+  </HashRouter>
 )
-  
