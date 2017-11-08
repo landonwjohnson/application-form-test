@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
-import {updatePhoneInfo} from '../../reducer';
+import {updatePhoneInfo, updateSnapchatInfo, updateFacebookInfo, updateInstagramInfo, updateTwitterInfo} from '../../reducer';
 
 
-const StyledContactInfo = styled.div`
-  background-color: white;
-  border: 1px solid blue;
+
+const FormBody=styled.div`
+width: 100%;
+margin: 10%;
+height: 100%;
 `;
 
 
@@ -15,40 +17,70 @@ const StyledContactInfo = styled.div`
 class ContactInfo extends Component {
   
   render() {
-    const { updatePhoneInfo } = this.props;
+    const { updatePhoneInfo, updateSnapchatInfo, updateFacebookInfo, updateInstagramInfo, updateTwitterInfo } = this.props;
     return (
       
-      <StyledContactInfo>
+      <FormBody>
         <div className="input">
           <form>
+              <label>Phone Number</label>
               <input type="number"
                 placeholder="000-000-000"
                 onChange={ ( e ) => updatePhoneInfo(e.target.value)}
               />
+              <br/>
+              <br/>
+              <label>Facebook</label>
+              <input type="text"
+                placeholder="URL"
+                onChange={ ( e ) => updateFacebookInfo(e.target.value)}
+              />
+              <br/>
+              <br/>
+              <label>Instagram</label>
+              <input type="text"
+                placeholder="Username"
+                onChange={ ( e ) => updateInstagramInfo(e.target.value)}
+              />
+              <br/>
+              <br/>
+              <label>Twitter</label>
+              <input type="text"
+                placeholder="Username"
+                onChange={ ( e ) => updateTwitterInfo(e.target.value)}
+              />
+              <br/>
+              <br/>
+              <label>Snapchat</label>
+              <input type="text"
+                placeholder="Username"
+                onChange={ ( e ) => updateSnapchatInfo(e.target.value)}
+              />
+              <br/>
+              <br/>
               
               <div className="step__btn_container">
-                <button className="drk-btn" >Next Step</button>
+                <Link to="finished"><button className="drk-btn" >Next Step</button></Link>
               </div>
-           
           </form>
         </div>
         
         
 
         
-        </StyledContactInfo>
+        </FormBody>
       
     )
   }
 }
 
 function mapStateToProps(state){
-  const { phoneNumber } = state;
+  const { phoneNumber, twitter, facebook, snapchat, instagram } = state;
   return {
       phoneNumber
   };
 }
 
-export default connect(mapStateToProps, { updatePhoneInfo } ) (ContactInfo); 
+export default connect(mapStateToProps, { updatePhoneInfo, updateFacebookInfo, updateInstagramInfo, updateSnapchatInfo, updateTwitterInfo } ) (ContactInfo); 
 
 

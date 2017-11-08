@@ -6,12 +6,12 @@ background-color: white;
 border: 1px solid red;
 `;
 
-class Filter extends Component {
+class Stats extends Component {
   render() {
     return (
         <FilterCo>
             <form>
-              <h3>Filter Statistics By</h3>
+              <h3>Filter Results By</h3>
               <select >
                   <option> Age </option>
               </select>
@@ -29,11 +29,20 @@ class Filter extends Component {
               </select>
               <button> FILTER </button>
             </form>
-            <p>Display the average of results depending on filter preferences</p>
+            <p>Infographic Stats change depending on filter preferences</p>
             
+            <ul>
+                <li>This form has been filled out "0" times</li>
+                <li>Average Education</li>
+                <li>Average BMI</li>
+                <li>Average Height</li>
+                <li>Average Weight</li>
+                <li>Average Salary</li>
+
+            </ul>
         </FilterCo>
     );
   }
 }
 
-export default Filter;
+export default Stats;

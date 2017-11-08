@@ -1,8 +1,8 @@
 .App {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   height: 100%;
-  align-items: center;
 }
 
 .test-top {
@@ -12,6 +12,20 @@
   width: 100%;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  list-style: none;
+  font-size: 15px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
 
-.input {
+.nav a {
+  text-decoration: none;
+  list-style: none;
+  color: white;
 }

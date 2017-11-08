@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
-import {updateGenderType, updateColorType} from '../../reducer';
+import {updateGenderType, updateColorType, updateBirthdayType, updateEducationType} from '../../reducer';
 
 
 const StyledPage1 = styled.div`
   background-color: white;
-  border: 1px solid blue;
+`;
+
+const FormBody=styled.div`
+width: 100%;
+margin: 10%;
+
 `;
 
 
@@ -15,11 +20,11 @@ const StyledPage1 = styled.div`
 class Page1 extends Component {
   
   render() {
-    const { updateGenderType, updateColorType } = this.props;
+    const { updateGenderType, updateColorType, updateBirthdayType, updateEducationType } = this.props;
     return (
       
       <StyledPage1>
-        <div className="input">
+        <FormBody>
    
             
               <br/>
@@ -50,6 +55,23 @@ class Page1 extends Component {
                         <option value="teal" style={{"background-color":"teal"}}>Teal</option>
                   </select>
                   <br/>
+              <label> Birthday </label>
+              <br/>
+                  <input type="date"  
+                    onChange={ ( e ) => updateBirthdayType(e.target.value)} required
+                    required
+                  />
+              <br/>
+
+              <label> Highest Education </label>
+              <br/>
+              <select onChange={ ( e ) => updateEducationType(e.target.value)} required>
+                    <option></option>
+                    <option value="Highschool">Highschool Diploma</option>
+                    <option value="Associates">Associate’s Degree</option>
+                    <option value="Bachelors">Bachelor's Degree</option>
+                    <option value="Masters">Master's Degree</option>
+              </select>
             
 
               
@@ -60,7 +82,7 @@ class Page1 extends Component {
               </div>
            
           </form>
-        </div>
+        </FormBody>
         
         
 
@@ -72,13 +94,15 @@ class Page1 extends Component {
 }
 
 function mapStateToProps(state){
-  const { gender , color } = state;
+  const { gender , color, birthday, education } = state;
   return {
       gender,
-      color
+      color,
+      birthday,
+      education
   };
 }
 
-export default connect(mapStateToProps, {updateGenderType, updateColorType, } ) (Page1); 
+export default connect(mapStateToProps, {updateGenderType, updateColorType, updateBirthdayType, updateEducationType } ) (Page1); 
 
 
