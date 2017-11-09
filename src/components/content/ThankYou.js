@@ -6,12 +6,19 @@ import FacebookIcon from '../../img/social/Facebook.png';
 import LinkedInIcon from '../../img/social/Linkedin.png';
 import YouTubeIcon from '../../img/social/YouTube.png';
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
 
-export default class ThankYou extends Component {
+
+const FormBody=styled.div`
+width: 100%;
+margin: 10%;
+height: 100vh;
+`;
+class ThankYou extends Component {
   render() {
-    console.log(this.state)
     return (
       <div>
+       
         <h1>Thank You!</h1>
         <h6>While waiting for me to respond, feel free to follow me on social media and check out the results from this application</h6>
         <div className="contact-wrapper"> 
@@ -24,10 +31,12 @@ export default class ThankYou extends Component {
                 </div>
         </div>
         <Link to="stats"><button>Results</button></Link>
-        
+      
       </div>
       
       
     );
   }
 }
+
+export default ThankYou

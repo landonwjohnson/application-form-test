@@ -14,10 +14,9 @@ height: 50px;
 class Header extends Component {
   render() {
     return (
-      <HeaderContainer navColor={this.props.color || 'slategrey'} >
+      <HeaderContainer navColor={this.props.color || '#353535'} >
         <ul className="nav">
             <Link to="/"><li>Form Application</li></Link>
-            <li>Sign in with Facebook</li>
         </ul>
       </HeaderContainer>
     );

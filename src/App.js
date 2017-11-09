@@ -6,6 +6,7 @@ import router from './router';
 import moment from 'moment';
 import Body from './components/Body';
 import Header from './components/Header';
+import Resume from './components/Resume';
 
 
 
@@ -13,15 +14,7 @@ const StyledApp = styled.div`
   background: ${propsies => propsies.niceColor}, opacity 0.5;
 `;
 
-const OutPut = styled.div`
-  display: block;
-  position: relative;
-  background-color: ${'white'};
-  border: 1px solid green;
-  width: 770px;
-  margin-left: auto;
-  margin-right: auto;
-`
+
 
 let now = moment();
 
@@ -31,24 +24,26 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        birthday: '',
-        education: '',
-        age: '',
-        gender: '',
-        color: '',
-        city: '',
-        usaState: '',
-        height: '',
-        weight: '',
-        facebook: '',
-        instagram: '',
-        snapchat: '',
-        phoneNumber: '',
-        zip: '',
-        bmi: '',
+      firstName: '',
+      lastName: '',
+      education: '',
+      phoneNumber: '',
+      birthday: '',
+      age: '',
+      gender: '',
+      color: '',
+      city: '',
+      usaState: '',
+      weight: '',
+      facebook: '',
+      instagram: '',
+      snapchat: '',
+      phoneNumber: '',
+      zip: '',
+      smokes: '',
+      drinks: '',
+      bmi: '',
+      picture: '' 
     }
     this.handleChangeGenderType = this.handleChangeGenderType.bind(this);
     this.handleChangeColorType = this.handleChangeColorType.bind(this);
@@ -90,28 +85,7 @@ class App extends Component {
       <StyledApp niceColor={this.props.color || 'white'} className="App">
         <Header color={this.state.color}/>
         <Body />
-        <OutPut>
-        <h1>Output</h1>
-        <p>Gender:<b>{this.props.gender}</b></p>
-        <p>Color:<b>{this.props.color}</b></p>
-        <p>Birthday:<b>{this.props.birthday}</b></p>
-        <p>Phone:<b>{this.props.phoneNumber}</b></p>
-        <p>Age:<b>{this.props.age}</b></p>
-        <p>State:<b>{this.props.usaState}</b></p>
-        <p>Work:</p>
-        <p>Salary:</p>
-        <p>About:</p>
-        <p>Why You:</p>
-        <p>Hobbies:</p>
-        <p>Weight:</p>
-        <p>Height:</p>
-        <p>City:<b>{this.props.city}</b></p>
-        <p>Education:<b>{this.props.education}</b></p>
-        <p>Facebook:<b>{this.props.facebook}</b></p>
-        <p>Instagram:<b>{this.props.instagram}</b></p>
-        <p>Snapchat:<b>{this.props.snapchat}</b></p>
-        <p>Twitter:<b>{this.props.twitter}</b></p>
-        </OutPut>
+        <Resume />
         
       </StyledApp>
      

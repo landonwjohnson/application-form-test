@@ -60,7 +60,7 @@ class ContactInfo extends Component {
               <br/>
               
               <div className="step__btn_container">
-                <Link to="finished"><button className="drk-btn" >Next Step</button></Link>
+                <Link to="/page/3"><button className="drk-btn" >Next Step</button></Link>
               </div>
           </form>
         </div>
