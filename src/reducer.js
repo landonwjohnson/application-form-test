@@ -1,6 +1,7 @@
 //Login
 const UPDATE_BIRTHDAY = "UPDATE_BIRTHDAY";
 const UPDATE_AGE = "UPDATE_AGE";
+const UPDATE_ZIP = "UPDATE_ZIP";
 //Basics
 const UPDATE_FIRST = "UPDATE_FIRST";
 const UPDATE_LAST = "UPDATE_LAST";
@@ -56,6 +57,12 @@ var initialState={
 function reducer(state = initialState, action){
     console.log('REDUCER HIT: Action ->', action );
     switch(action.type) {
+        case "UPDATE_ZIP":
+            return Object.assign( {}, state, { zip: action.payload })
+        case "UPDATE_STATE":
+            return Object.assign( {}, state, { usaState: action.payload })
+        case "UPDATE_CITY":
+            return Object.assign( {}, state, { city: action.payload })
         case "UPDATE_PICTURE1":
             return Object.assign( {}, state, { picture1: action.payload })
         case "UPDATE_FIRST":
@@ -91,7 +98,6 @@ function reducer(state = initialState, action){
         case "UPDATE_BMI":
             return Object.assign( {}, state, { bmi: action.payload} );
 
-
         default: return state;
         }
     }
@@ -102,6 +108,13 @@ export function updatePicture1( picture1 ) {
             payload: picture1
         }
     }
+
+export function updateZip( zip ) {
+    return {
+        type: UPDATE_ZIP,
+        payload: zip
+    }
+}
 
 export function updateFirstNameType( firstName ) {
     return {

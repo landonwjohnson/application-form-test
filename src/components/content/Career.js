@@ -31,7 +31,7 @@ class Career extends Component {
               </select>
         
             <div className="step__btn_container">
-            <Link to="/finished"><button className="drk-btn" >Next Step</button></Link>
+            <Link to="/finished"><button className="drk-btn" style={{"background":`${this.props.color}`}} >Next Step</button></Link>
             </div>
      </form>
 

@@ -14,6 +14,10 @@ const StyledApp = styled.div`
   background: ${propsies => propsies.niceColor}, opacity 0.5;
 `;
 
+const InputField = styled.div`
+background: ${propsies => propsies.fieldColor} || '#353535'}
+`;
+
 
 
 let now = moment();
@@ -45,11 +49,12 @@ class App extends Component {
       bmi: '',
       picture: '' 
     }
+
+    this.handleChangeZip = this.handleChangeZip.bind(this);
     this.handleChangeGenderType = this.handleChangeGenderType.bind(this);
     this.handleChangeColorType = this.handleChangeColorType.bind(this);
     this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
     this.handleChangeBirthday = this.handleChangeBirthday.bind(this);
-    
   }
 
    
@@ -57,6 +62,10 @@ class App extends Component {
 
   handleChangeGenderType(event) {
     this.setState({gender: event.target.value});
+  }
+
+  handleChangeZip(event) {
+    this.setState({zip: event.target.value});
   }
 
   handleChangeColorType(event) {

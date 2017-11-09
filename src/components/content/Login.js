@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
-import {updateBirthdayType} from '../../reducer';
+import {updateBirthdayType, updateZip} from '../../reducer';
 
 
 const LoginPage = styled.div`
@@ -21,7 +21,7 @@ class Login extends Component {
   
 
   render() {
-    const {updateBirthdayType} = this.props;
+    const {updateBirthdayType, updateZip} = this.props;
  
     return (
       
@@ -65,6 +65,7 @@ class Login extends Component {
                       <input 
                         className="location-input"
                         type="number" 
+                        onChange={ ( e ) => updateZip(e.target.value)}
                       />
                   </div>
                   {/* <input
@@ -76,7 +77,7 @@ class Login extends Component {
 
 
                   <div className="enter__btn_container">
-                      <Link to="/page/1"><button className="enter-button" >Enter</button></Link>
+                      <Link to="/page/1"><button className="drk-btn" >Enter</button></Link>
                   </div>
               </div>
           </div>
@@ -102,12 +103,13 @@ class Login extends Component {
 }
 
 function mapStateToProps(state){
-  const { birthday } = state;
+  const { birthday, zip } = state;
   return {
       birthday,
+      zip
   };
 }
 
-export default connect(mapStateToProps, { updateBirthdayType } ) (Login); 
+export default connect(mapStateToProps, { updateBirthdayType, updateZip } ) (Login); 
 
 

@@ -20,6 +20,7 @@ class Resume extends Component {
     return (
       <OutPut>
         <div>
+        <p>Zip:<b>{this.props.zip}</b></p>
         <p>First Name:<b>{this.props.firstName}</b></p>
         <p>Last Name:<b>{this.props.lastName}</b></p>
         <p>Gender:<b>{this.props.gender}</b></p>

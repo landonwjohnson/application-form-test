@@ -42,13 +42,17 @@ class Basics extends Component {
               <label>What's your name</label>
               <br/>
               <input 
-                className="name-input"
+                className="name-input input-field"
+                style={{"border-bottom": `solid ${this.props.color}`}}
+                placeholder="First"
                 type="text" 
                 onChange={ ( e ) => updateFirstNameType(e.target.value)}
                 required
               />
               <input 
-                className="name-input"
+                className="name-input input-field"
+                style={{"border-bottom": `solid ${this.props.color}`}}
+                placeholder="Last"
                 type="text" 
                 onChange={ ( e ) => updateLastNameType(e.target.value)}
                 required
@@ -85,7 +89,7 @@ class Basics extends Component {
 
 
               <div className="step__btn_container">
-                <Link to="/page/2"><button className="drk-btn" >Next Step</button></Link>
+                <Link to="/page/2"><button className="drk-btn" style={{"background":`${this.props.color}`}} >Next Step</button></Link>
               </div>
            
           

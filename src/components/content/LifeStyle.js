@@ -44,7 +44,7 @@ class LifeStyle extends Component {
             </select>
             <br/>
             <div className="step__btn_container">
-            <Link to="/page/4"><button className="drk-btn" >Next Step</button></Link>
+            <Link to="/page/4"><button className="drk-btn" style={{"background":`${this.props.color}`}} >Next Step</button></Link>
             </div>
      </form>
 
