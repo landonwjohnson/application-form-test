@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
+import './css/styles.css';
 import styled from 'styled-components';
 import router from './router';
 import moment from 'moment';

@@ -58,6 +58,7 @@ class Login extends Component {
                       <select className="birth-input">
                         <option className="date-text">YY</option>
                       </select>
+                      <p>You must be 18 or older to fill out this form (this will appear if the age input is not vaild)</p>
                   </div>
 
                   <div class="getLocationContainer">

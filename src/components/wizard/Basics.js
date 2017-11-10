@@ -28,17 +28,6 @@ class Basics extends Component {
       <StyledBasics>
         <form className="basics-form">
         <FormBody>
-   
-            
-              <br/>
-          
-              <div className="avatar-container">
-                  <div className="avatar">
-                  </div>
-              </div>
-
-              <input type="file" name="datafile" size="50" />
-              <br/>
               <label>What's your name</label>
               <br/>
               <input 
